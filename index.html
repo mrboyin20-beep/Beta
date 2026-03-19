@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CashVibe | Pro Beta Access</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+        :root {
+            --primary: #00f2fe;
+            --secondary: #4facfe;
+            --accent: #fdfc47;
+            --neon-glow: 0 0 15px rgba(0, 242, 254, 0.5);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #020205;
+            color: white;
+            display: flex; justify-content: center; align-items: center;
+            min-height: 100vh; overflow-x: hidden;
+        }
+
+        /* Animated Particle Background Effect */
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 20% 30%, #16213e 0%, #020205 100%);
+            z-index: -2;
+        }
+
+        /* Top Scrolling Header */
+        .header-status {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--primary);
+            padding: 10px 0; z-index: 1000;
+        }
+
+        .scroll-msg {
+            display: inline-block; white-space: nowrap;
+            animation: scroll 25s linear infinite;
+            color: var(--primary); font-size: 11px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px;
+        }
+
+        @keyframes scroll { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
+
+        /* Ultra Pro Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px 30px; border-radius: 40px;
+            width: 95%; max-width: 520px;
+            margin: 100px 0 50px 0;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 0 20px rgba(255,255,255,0.02);
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif; text-align: center; font-size: 32px;
+            background: linear-gradient(to right, #fff, var(--primary));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 5px; letter-spacing: 3px;
+        }
+
+        .tagline { text-align: center; color: #888; font-size: 12px; margin-bottom: 30px; letter-spacing: 1px; }
+
+        /* Inputs */
+        .form-row { display: flex; gap: 20px; }
+        .input-box { position: relative; width: 100%; margin-bottom: 25px; }
+
+        label {
+            display: block; font-size: 11px; color: var(--primary);
+            margin-bottom: 8px; text-transform: uppercase; font-weight: 700;
+            letter-spacing: 1px; padding-left: 5px;
+        }
+
+        input {
+            width: 100%; background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 14px 15px; color: white; border-radius: 12px;
+            outline: none; transition: 0.4s; font-size: 14px;
+        }
+
+        input:focus {
+            border-color: var(--primary); background: rgba(0, 242, 254, 0.05);
+            box-shadow: var(--neon-glow);
+        }
+
+        /* Example Text (Placeholder) */
+        input::placeholder { color: rgba(255, 255, 255, 0.15); transition: 0.3s; }
+        input:focus::placeholder { opacity: 0; }
+
+        /* The Button */
+        .btn-launch {
+            width: 100%; padding: 18px;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            border: none; border-radius: 15px;
+            color: #000; font-family: 'Orbitron', sans-serif; font-weight: 900;
+            font-size: 16px; cursor: pointer; transition: 0.4s;
+            box-shadow: 0 10px 20px rgba(0, 242, 254, 0.3);
+            margin-top: 10px;
+        }
+
+        .btn-launch:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 242, 254, 0.5);
+            letter-spacing: 3px;
+        }
+
+        /* Social Icons */
+        .social-links {
+            margin-top: 35px; display: flex; justify-content: center; gap: 25px;
+            border-top: 1px solid rgba(255,255,255,0.05); padding-top: 25px;
+        }
+
+        .social-links a {
+            width: 45px; height: 45px; background: rgba(255,255,255,0.03);
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 12px; color: white; font-size: 20px; transition: 0.4s;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .social-links a:hover {
+            color: var(--primary); border-color: var(--primary);
+            transform: translateY(-5px); box-shadow: var(--neon-glow);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-status">
+        <div class="scroll-msg">
+            SYSTEM CORE: Beta-Phase Active • Rewards: Founder Perks for Testers • Notice: Virtual Testing Coins Only • Join the Vibe!
+        </div>
+    </div>
+
+    <div class="glass-card">
+        <h1>CASHVIBE</h1>
+        <p class="tagline"><i class="fa fa-bolt"></i> INITIALIZE YOUR EARNING JOURNEY</p>
+
+        <form id="betaForm">
+            <div class="form-row">
+                <div class="input-box">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="e.g. Rahul Sharma" required>
+                </div>
+                <div class="input-box">
+                    <label>Device</label>
+                    <input type="text" placeholder="e.g. iPhone 15 / Vivo T3x" required>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <label>Email ID</label>
+                <input type="email" placeholder="e.g. rahul.sharma@gmail.com" required>
+            </div>
+
+            <div class="input-box">
+                <label>WhatsApp Number</label>
+                <input type="tel" placeholder="e.g. 9810XXXXXX" required>
+            </div>
+
+            <div class="input-box">
+                <label>Locality / Village</label>
+                <input type="text" placeholder="e.g. Malviya Nagar / Street No. 4" required>
+            </div>
+
+            <div class="form-row">
+                <div class="input-box">
+                    <label>City</label>
+                    <input type="text" placeholder="e.g. New Delhi" required>
+                </div>
+                <div class="input-box">
+                    <label>PIN Code</label>
+                    <input type="text" placeholder="e.g. 110017" required>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <label>State</label>
+                <input type="text" placeholder="e.g. Delhi" required>
+            </div>
+
+            <button type="submit" class="btn-launch">GET ACCESS KEY</button>
+        </form>
+
+        <div class="social-links">
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-telegram-plane"></i></a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('betaForm').onsubmit = (e) => {
+            e.preventDefault();
+            const btn = document.querySelector('.btn-launch');
+            btn.innerHTML = '<i class="fa fa-sync fa-spin"></i> GENERATING ID...';
+            
+            setTimeout(() => {
+                btn.style.background = '#00ff88';
+                btn.innerHTML = 'REQUEST SENT!';
+                alert("Identity Captured! Hum jald hi aapki Beta ID WhatsApp par bhejenge.");
+            }, 2500);
+        };
+    </script>
+</body>
+</html>

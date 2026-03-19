@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CashVibe | Beta Database</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+        :root {
+            --sheet-bg: #ffffff;
+            --sheet-border: #e0e0e0;
+            --sheet-header: #f8f9fa;
+            --sheet-text: #3c4043;
+            --accent-blue: #1a73e8;
+            --accent-green: #188038;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f1f3f4;
+            margin: 0;
+            padding: 0;
+            color: var(--sheet-text);
+        }
+
+        /* Top Navigation Bar (Sheets Style) */
+        nav {
+            background: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--sheet-border);
+            position: sticky; top: 0; z-index: 100;
+        }
+
+        .logo-area { display: flex; align-items: center; gap: 10px; }
+        .logo-area i { color: var(--accent-green); font-size: 24px; }
+        .logo-area h2 { margin: 0; font-size: 18px; font-weight: 500; }
+
+        /* Toolbar Area */
+        .toolbar {
+            background: white;
+            padding: 8px 20px;
+            border-bottom: 1px solid var(--sheet-border);
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .search-input {
+            padding: 6px 12px;
+            border: 1px solid var(--sheet-border);
+            border-radius: 4px;
+            width: 250px;
+            outline-color: var(--accent-blue);
+        }
+
+        /* Main Spreadsheet Container */
+        .sheet-container {
+            margin: 20px;
+            background: white;
+            border: 1px solid var(--sheet-border);
+            border-radius: 4px;
+            overflow: auto;
+            max-height: 80vh;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        /* Column Headers */
+        thead th {
+            background: var(--sheet-header);
+            color: #5f6368;
+            font-weight: 500;
+            padding: 10px;
+            border-right: 1px solid var(--sheet-border);
+            border-bottom: 2px solid var(--sheet-border);
+            text-align: left;
+            position: sticky; top: 0;
+        }
+
+        /* Row Index Column */
+        .row-index {
+            background: var(--sheet-header);
+            text-align: center;
+            width: 40px;
+            color: #888;
+            font-size: 11px;
+            border-right: 1px solid var(--sheet-border);
+        }
+
+        td {
+            padding: 8px 12px;
+            border-right: 1px solid var(--sheet-border);
+            border-bottom: 1px solid var(--sheet-border);
+            white-space: nowrap;
+        }
+
+        /* Zebra Striping */
+        tbody tr:nth-child(even) { background-color: #fcfcfc; }
+        tbody tr:hover { background-color: #f1f3f4; }
+
+        /* Custom Status Colors */
+        .status-pill {
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+        .status-new { background: #e8f0fe; color: #1a73e8; }
+        .status-verified { background: #e6f4ea; color: #188038; }
+
+        .btn-copy {
+            background: none; border: none; color: var(--accent-blue);
+            cursor: pointer; font-size: 12px; padding: 2px 5px;
+        }
+        .btn-copy:hover { text-decoration: underline; }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-area">
+            <i class="fa fa-file-excel"></i>
+            <h2>CashVibe Beta Users Database</h2>
+        </div>
+        <div class="user-info">
+            <span style="font-size: 12px; color: #666;">Admin: <b>Jangla Pachari</b></span>
+        </div>
+    </nav>
+
+    <div class="toolbar">
+        <input type="text" class="search-input" placeholder="Search data (Name, City, etc.)">
+        <button class="btn-copy" style="color: var(--accent-green); font-weight: bold;"><i class="fa fa-download"></i> Export CSV</button>
+        <div style="flex-grow: 1;"></div>
+        <span style="font-size: 12px; color: #888;">3 Total Registrations</span>
+    </div>
+
+    <div class="sheet-container">
+        <table>
+            <thead>
+                <tr>
+                    <th class="row-index">#</th>
+                    <th>Timestamp</th>
+                    <th>Full Name</th>
+                    <th>WhatsApp No.</th>
+                    <th>Email ID</th>
+                    <th>Device Model</th>
+                    <th>Village/Locality</th>
+                    <th>City</th>
+                    <th>PIN</th>
+                    <th>State</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="row-index">1</td>
+                    <td>19-03-2026 14:20</td>
+                    <td><b>Rahul Sharma</b></td>
+                    <td>9810XXXXXX <button class="btn-copy">Copy</button></td>
+                    <td>rahul.sharma@gmail.com</td>
+                    <td>Samsung S23</td>
+                    <td>Malviya Nagar</td>
+                    <td>New Delhi</td>
+                    <td>110017</td>
+                    <td>Delhi</td>
+                    <td><span class="status-pill status-new">NEW</span></td>
+                    <td><button class="btn-copy">Approve</button></td>
+                </tr>
+                <tr>
+                    <td class="row-index">2</td>
+                    <td>19-03-2026 15:45</td>
+                    <td><b>Priya Singh</b></td>
+                    <td>9122XXXXXX <button class="btn-copy">Copy</button></td>
+                    <td>priya.s@gmail.com</td>
+                    <td>iPhone 15</td>
+                    <td>Andheri West</td>
+                    <td>Mumbai</td>
+                    <td>400053</td>
+                    <td>Maharashtra</td>
+                    <td><span class="status-pill status-verified">VERIFIED</span></td>
+                    <td><button class="btn-copy">Details</button></td>
+                </tr>
+                <tr>
+                    <td class="row-index">3</td>
+                    <td>19-03-2026 16:10</td>
+                    <td><b>Vikram Kumar</b></td>
+                    <td>8877XXXXXX <button class="btn-copy">Copy</button></td>
+                    <td>vikram.k@gmail.com</td>
+                    <td>Redmi Note 12</td>
+                    <td>Salt Lake</td>
+                    <td>Kolkata</td>
+                    <td>700091</td>
+                    <td>West Bengal</td>
+                    <td><span class="status-pill status-new">NEW</span></td>
+                    <td><button class="btn-copy">Approve</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
