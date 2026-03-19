@@ -3,214 +3,291 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CashVibe | Pro Beta Access</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>CashVibe | Beta Protocol</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        /* [ADVANCED CSS ARCHITECTURE] */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;600;800&display=swap');
 
         :root {
-            --primary: #00f2fe;
-            --secondary: #4facfe;
-            --accent: #fdfc47;
-            --neon-glow: 0 0 15px rgba(0, 242, 254, 0.5);
+            --neon-blue: #00f2fe;
+            --neon-purple: #7000ff;
+            --bg-dark: #020205;
+            --warning: #fdfc47;
+            --glass: rgba(255, 255, 255, 0.05);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
+            background-color: var(--bg-dark);
+            color: #fff;
             font-family: 'Poppins', sans-serif;
-            background: #020205;
-            color: white;
-            display: flex; justify-content: center; align-items: center;
-            min-height: 100vh; overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 200vh; /* Scroll test karne ke liye extra height */
         }
 
-        /* Animated Particle Background Effect */
-        body::before {
-            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 20% 30%, #16213e 0%, #020205 100%);
+        /* Particles Animated Background */
+        .bg-glow {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #16213e 0%, #020205 100%);
             z-index: -2;
         }
 
-        /* Top Scrolling Header */
-        .header-status {
-            position: fixed; top: 0; width: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--primary);
-            padding: 10px 0; z-index: 1000;
+        /* --- STICKY DISCLAIMER BAR (Ye hamesha dikhega) --- */
+        .sticky-disclaimer {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: rgba(253, 252, 71, 0.15);
+            backdrop-filter: blur(15px);
+            border-bottom: 2px solid var(--warning);
+            padding: 12px 20px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
         }
 
-        .scroll-msg {
-            display: inline-block; white-space: nowrap;
-            animation: scroll 25s linear infinite;
-            color: var(--primary); font-size: 11px; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 2px;
+        .disclaimer-content {
+            font-size: 12px;
+            color: var(--warning);
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.4;
+            max-width: 800px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        @keyframes scroll { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
+        .disclaimer-content i { margin-right: 8px; font-size: 16px; }
 
-        /* Ultra Pro Card */
+        /* Main Form Container */
+        .main-wrapper {
+            margin: 60px 20px;
+            width: 100%;
+            max-width: 650px;
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 40px 30px; border-radius: 40px;
-            width: 95%; max-width: 520px;
-            margin: 100px 0 50px 0;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 0 20px rgba(255,255,255,0.02);
-            animation: fadeIn 1s ease-out;
-        }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-        h1 {
-            font-family: 'Orbitron', sans-serif; text-align: center; font-size: 32px;
-            background: linear-gradient(to right, #fff, var(--primary));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            margin-bottom: 5px; letter-spacing: 3px;
-        }
-
-        .tagline { text-align: center; color: #888; font-size: 12px; margin-bottom: 30px; letter-spacing: 1px; }
-
-        /* Inputs */
-        .form-row { display: flex; gap: 20px; }
-        .input-box { position: relative; width: 100%; margin-bottom: 25px; }
-
-        label {
-            display: block; font-size: 11px; color: var(--primary);
-            margin-bottom: 8px; text-transform: uppercase; font-weight: 700;
-            letter-spacing: 1px; padding-left: 5px;
-        }
-
-        input {
-            width: 100%; background: rgba(255,255,255,0.05);
+            background: var(--glass);
             border: 1px solid rgba(255,255,255,0.1);
-            padding: 14px 15px; color: white; border-radius: 12px;
-            outline: none; transition: 0.4s; font-size: 14px;
+            backdrop-filter: blur(25px);
+            padding: 50px 40px;
+            border-radius: 40px;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.7);
         }
 
-        input:focus {
-            border-color: var(--primary); background: rgba(0, 242, 254, 0.05);
-            box-shadow: var(--neon-glow);
+        .brand {
+            font-family: 'Orbitron';
+            font-size: 40px;
+            text-align: center;
+            background: linear-gradient(90deg, #fff, var(--neon-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+            letter-spacing: 5px;
         }
 
-        /* Example Text (Placeholder) */
-        input::placeholder { color: rgba(255, 255, 255, 0.15); transition: 0.3s; }
+        /* Form Styling */
+        .input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .full { grid-column: span 2; }
+
+        .field-group { margin-bottom: 25px; position: relative; }
+        .field-group label {
+            font-size: 11px;
+            color: var(--neon-blue);
+            text-transform: uppercase;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .field-group input {
+            width: 100%;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 15px 20px;
+            border-radius: 15px;
+            color: #fff;
+            outline: none;
+            transition: 0.4s;
+            font-size: 14px;
+        }
+
+        .field-group input:focus {
+            border-color: var(--neon-blue);
+            background: rgba(0, 242, 254, 0.05);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
+        }
+
+        /* Example Text Placeholder */
+        ::placeholder { color: rgba(255,255,255,0.1); }
         input:focus::placeholder { opacity: 0; }
 
-        /* The Button */
         .btn-launch {
-            width: 100%; padding: 18px;
-            background: linear-gradient(90deg, var(--secondary), var(--primary));
-            border: none; border-radius: 15px;
-            color: #000; font-family: 'Orbitron', sans-serif; font-weight: 900;
-            font-size: 16px; cursor: pointer; transition: 0.4s;
-            box-shadow: 0 10px 20px rgba(0, 242, 254, 0.3);
-            margin-top: 10px;
+            width: 100%;
+            padding: 20px;
+            border-radius: 20px;
+            background: linear-gradient(45deg, var(--neon-purple), var(--neon-blue));
+            border: none;
+            color: #fff;
+            font-family: 'Orbitron';
+            font-weight: 900;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.5s;
+            text-transform: uppercase;
+            box-shadow: 0 10px 30px rgba(112, 0, 255, 0.3);
         }
 
         .btn-launch:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(0, 242, 254, 0.5);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 242, 254, 0.4);
             letter-spacing: 3px;
         }
 
-        /* Social Icons */
-        .social-links {
-            margin-top: 35px; display: flex; justify-content: center; gap: 25px;
-            border-top: 1px solid rgba(255,255,255,0.05); padding-top: 25px;
+        /* Founder Footer */
+        .founder-info {
+            margin-top: 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 25px;
         }
 
-        .social-links a {
-            width: 45px; height: 45px; background: rgba(255,255,255,0.03);
-            display: flex; align-items: center; justify-content: center;
-            border-radius: 12px; color: white; font-size: 20px; transition: 0.4s;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
+        .founder-info p { font-size: 12px; color: #666; }
+        .founder-info b { color: var(--neon-blue); }
 
-        .social-links a:hover {
-            color: var(--primary); border-color: var(--primary);
-            transform: translateY(-5px); box-shadow: var(--neon-glow);
+        @media (max-width: 600px) {
+            .input-grid { grid-template-columns: 1fr; }
+            .full { grid-column: span 1; }
         }
     </style>
 </head>
 <body>
 
-    <div class="header-status">
-        <div class="scroll-msg">
-            SYSTEM CORE: Beta-Phase Active • Rewards: Founder Perks for Testers • Notice: Virtual Testing Coins Only • Join the Vibe!
+    <div class="bg-glow"></div>
+
+    <div class="sticky-disclaimer">
+        <div class="disclaimer-content">
+            <i class="fa fa-triangle-exclamation"></i>
+            <b>Important:</b> Beta coins are <u>Virtual</u>. Active testers will receive <b>exclusive cash rewards</b> & founder bonuses on official launch.
         </div>
     </div>
 
-    <div class="glass-card">
-        <h1>CASHVIBE</h1>
-        <p class="tagline"><i class="fa fa-bolt"></i> INITIALIZE YOUR EARNING JOURNEY</p>
+    <div class="main-wrapper">
+        <div class="glass-card">
+            <h1 class="brand">CASHVIBE</h1>
+            
+            <form id="proForm">
+                <div class="input-grid">
+                    <div class="field-group">
+                        <label>Full Name</label>
+                        <input type="text" id="name" placeholder="e.g. Rahul Sharma" required>
+                    </div>
+                    <div class="field-group">
+                        <label>Device Model</label>
+                        <input type="text" id="device" placeholder="e.g. Vivo T3x / iPhone" required>
+                    </div>
+                    
+                    <div class="field-group full">
+                        <label>Email Address</label>
+                        <input type="email" id="email" placeholder="e.g. rahul.sharma@gmail.com" required>
+                    </div>
 
-        <form id="betaForm">
-            <div class="form-row">
-                <div class="input-box">
-                    <label>Full Name</label>
-                    <input type="text" placeholder="e.g. Rahul Sharma" required>
+                    <div class="field-group full">
+                        <label>WhatsApp Number</label>
+                        <input type="tel" id="whatsapp" placeholder="e.g. 9810XXXXXX" required>
+                    </div>
+
+                    <div class="field-group full">
+                        <label>Locality / Village</label>
+                        <input type="text" id="locality" placeholder="e.g. Malviya Nagar, Street 4" required>
+                    </div>
+
+                    <div class="field-group">
+                        <label>City</label>
+                        <input type="text" id="city" placeholder="e.g. New Delhi" required>
+                    </div>
+                    <div class="field-group">
+                        <label>PIN Code</label>
+                        <input type="text" id="pin" placeholder="e.g. 110017" required>
+                    </div>
+
+                    <div class="field-group full">
+                        <label>State</label>
+                        <input type="text" id="state" placeholder="e.g. Delhi" required>
+                    </div>
                 </div>
-                <div class="input-box">
-                    <label>Device</label>
-                    <input type="text" placeholder="e.g. iPhone 15 / Vivo T3x" required>
+
+                <button type="submit" class="btn-launch">Initialize Beta Access</button>
+            </form>
+
+            <div class="founder-info">
+                <p>Authorized by <b>M.R JAY</b> (Founder)</p>
+                <div style="margin-top: 15px; font-size: 20px;">
+                    <a href="#" style="color:#fff; margin:0 10px;"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" style="color:#fff; margin:0 10px;"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-
-            <div class="input-box">
-                <label>Email ID</label>
-                <input type="email" placeholder="e.g. rahul.sharma@gmail.com" required>
-            </div>
-
-            <div class="input-box">
-                <label>WhatsApp Number</label>
-                <input type="tel" placeholder="e.g. 9810XXXXXX" required>
-            </div>
-
-            <div class="input-box">
-                <label>Locality / Village</label>
-                <input type="text" placeholder="e.g. Malviya Nagar / Street No. 4" required>
-            </div>
-
-            <div class="form-row">
-                <div class="input-box">
-                    <label>City</label>
-                    <input type="text" placeholder="e.g. New Delhi" required>
-                </div>
-                <div class="input-box">
-                    <label>PIN Code</label>
-                    <input type="text" placeholder="e.g. 110017" required>
-                </div>
-            </div>
-
-            <div class="input-box">
-                <label>State</label>
-                <input type="text" placeholder="e.g. Delhi" required>
-            </div>
-
-            <button type="submit" class="btn-launch">GET ACCESS KEY</button>
-        </form>
-
-        <div class="social-links">
-            <a href="#"><i class="fab fa-whatsapp"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-telegram-plane"></i></a>
         </div>
     </div>
 
-    <script>
-        document.getElementById('betaForm').onsubmit = (e) => {
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBQGMwY2Aow-BPwnkiElXvjyAgLyjDHjpk",
+            authDomain: "freerecharge-e10e5.firebaseapp.com",
+            databaseURL: "https://freerecharge-e10e5-default-rtdb.firebaseio.com",
+            projectId: "freerecharge-e10e5",
+            storageBucket: "freerecharge-e10e5.firebasestorage.app",
+            messagingSenderId: "152498311003",
+            appId: "1:152498311003:web:5ce6f3f6fe8fcebec3d47e"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        document.getElementById('proForm').onsubmit = async (e) => {
             e.preventDefault();
             const btn = document.querySelector('.btn-launch');
-            btn.innerHTML = '<i class="fa fa-sync fa-spin"></i> GENERATING ID...';
-            
-            setTimeout(() => {
-                btn.style.background = '#00ff88';
-                btn.innerHTML = 'REQUEST SENT!';
-                alert("Identity Captured! Hum jald hi aapki Beta ID WhatsApp par bhejenge.");
-            }, 2500);
+            btn.innerHTML = 'ENCRYPTING DATA...';
+
+            const payload = {
+                name: document.getElementById('name').value,
+                device: document.getElementById('device').value,
+                email: document.getElementById('email').value,
+                whatsapp: document.getElementById('whatsapp').value,
+                locality: document.getElementById('locality').value,
+                city: document.getElementById('city').value,
+                pin: document.getElementById('pin').value,
+                state: document.getElementById('state').value,
+                status: "UNVERIFIED",
+                timestamp: new Date().toLocaleString()
+            };
+
+            try {
+                await push(ref(db, 'beta_registrations'), payload);
+                btn.style.background = "#00ff88";
+                btn.innerHTML = "ACCESS REQUESTED!";
+                alert("Success! Founder will contact you on WhatsApp soon.");
+                document.getElementById('proForm').reset();
+            } catch (err) {
+                alert("System Error: " + err.message);
+                btn.innerHTML = "RETRY";
+            }
         };
     </script>
 </body>
